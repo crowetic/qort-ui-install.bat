@@ -9,3 +9,6 @@ RUNNING AS ADMIN IS VERY IMPORTANT, IF YOU DO NOT, THE DEPENDENCIES WILL NOT INS
 5. access the UI via - http://localhost 
 
 To run the UI server after first install, run the 'start-UI.bat' script.
+
+YOU NEED THE QORTAL CORE RUNNING IF YOU PLAN TO ACTUALLY UTILIZE THE BLOCKCHAIN. 
+https://github.com/qort/qortal/releases
