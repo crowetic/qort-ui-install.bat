@@ -16,7 +16,7 @@ Sleep 2
 
 @powershell -NoProfile -ExecutionPolicy Bypass -Command "choco install git -fy"
 sleep 10
-@powershell -NoProfile -ExecutionPolicy Bypass -Command "choco install nodejs.install -fy
+@powershell -NoProfile -ExecutionPolicy Bypass -Command "choco install nodejs.install -fy"
 sleep 15
 @powershell -NoProfile -ExecutionPolicy Bypass -Command "choco install yarn -fy"
 
