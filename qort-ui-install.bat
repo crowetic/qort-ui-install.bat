@@ -1,24 +1,23 @@
-:: Download this and execute as admin
+
+:: Dev tools 
+
+@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "[System.Net.ServicePointManager]::SecurityProtocol = 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+
+::Timeout / t 30
+
+choco install git -fy 
+
+::Timeout / t 15
+
+choco install nodejs.install -fy 
+
+::Timeout / t 45
 
 
-:: Install choco .exe and add choco to PATH
-@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
-start /wait powershell -NoProfile -ExecutionPolicy Bypass -Command  "sleep 5"
-@powershell sleep 2
+choco install yarn -fy 
 
+::Timeout / t 45
 
-@powershell -NoProfile -ExecutionPolicy Bypass -Command  "choco feature enable -n allowGlobalConfirmation"
-sleep 2
-echo -e "FINISHING CHOCO INSTALL AND SETUP. tHEN INSTALLING DEPENDENCIES."
-Sleep 2
-
-:::: Dev tools
-
-@powershell -NoProfile -ExecutionPolicy Bypass -Command "choco install git -fy"
-sleep 10
-@powershell -NoProfile -ExecutionPolicy Bypass -Command "choco install nodejs.install -fy"
-sleep 15
-@powershell -NoProfile -ExecutionPolicy Bypass -Command "choco install yarn -fy"
 
 
 ::git from repos after changing to script directory
@@ -40,6 +39,7 @@ cd frag-core
 ::start /wait cmd.exe /c  "yarn install" 
 ::start /wait cmd.exe /c  "yarn link"
 @powershell -NoProfile -ExecutionPolicy Bypass -Command "yarn install"
+@powershell -NoProfile -ExecutionPolicy Bypass -Command "yarn unlink"
 @powershell -NoProfile -ExecutionPolicy Bypass -Command "yarn link"
 
 cd /D %~dp0
@@ -47,12 +47,14 @@ cd frag-default-plugins
 ::start /wait cmd.exe /c "yarn install" 
 ::start /wait cmd.exe /c "yarn link"
 @powershell -NoProfile -ExecutionPolicy Bypass -Command "yarn install"
+@powershell -NoProfile -ExecutionPolicy Bypass -Command "yarn unlink"
 @powershell -NoProfile -ExecutionPolicy Bypass -Command "yarn link"
 cd /D %~dp0
 cd frag-qortal-crypto
 ::start /wait cmd.exe /c "yarn install" 
 ::start /wait cmd.exe /c "yarn link"
 @powershell -NoProfile -ExecutionPolicy Bypass -Command "yarn install"
+@powershell -NoProfile -ExecutionPolicy Bypass -Command "yarn unlink"
 @powershell -NoProfile -ExecutionPolicy Bypass -Command "yarn link"
 cd /D %~dp0
 cd qortal-ui
