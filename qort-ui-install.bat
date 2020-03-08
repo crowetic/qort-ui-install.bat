@@ -25,13 +25,13 @@ choco install yarn -fy
 cd /D %~dp0
 
 
-start /wait cmd.exe /c "git clone https://github.com/irontiga/qortal-ui" 
+start /wait cmd.exe /c "git clone https://github.com/QORT/qortal-ui" 
 
-start /wait cmd.exe /c "git clone https://github.com/frag-crypto/frag-default-plugins" 
+start /wait cmd.exe /c "git clone https://github.com/QORT/frag-default-plugins" 
 
-start /wait cmd.exe /c "git clone https://github.com/frag-crypto/frag-core" 
+start /wait cmd.exe /c "git clone https://github.com/QORT/frag-core" 
 
-start /wait cmd.exe /c "git clone https://github.com/frag-crypto/frag-qortal-crypto" 
+start /wait cmd.exe /c "git clone https://github.com/QORT/frag-qortal-crypto" 
 
 ::yarn install and link files 
 cd /D %~dp0
